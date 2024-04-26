@@ -119,6 +119,7 @@ def collate_fn(batch):
     batch_input_ids = torch.LongTensor(cur_batch, max_text_length).zero_()
     batch_mask = torch.LongTensor(cur_batch, max_text_length).zero_()
     batch_entity_list = torch.LongTensor(cur_batch, 2, max_length, 2).zero_()
+    # 这里的53指代关系的数量，即和config.py中的num_rel一致
     batch_head_list = torch.LongTensor(cur_batch, 53, max_head_len, 2).zero_()
     batch_tail_list = torch.LongTensor(cur_batch, 53, max_tail_len, 2).zero_()
 
